@@ -17,7 +17,9 @@
         let right = nums.length -1;
         // while the left is less than the right
         while(left <= right){
+        // if the target is the first element, return 0
             let mid = Math.floor((left + right)/2);
+        // if the target is the first element, return 0
             if (nums[mid] === target) return mid;
             if (nums[mid] < target) {
             left = mid + 1;
