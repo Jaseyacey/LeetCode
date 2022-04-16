@@ -11,14 +11,24 @@ k steps, where k is non-negative.
  */
  
 var rotate = function(nums, k) {
-    k = k%nums.length;
-    let [start, end] = [0, nums.length-1];
-    let temp = [];
-    while(start<end){
-        temp.push(nums[start]);
-        nums[start] = nums[end];
-        nums[end] = temp.pop();
-        start++;
-        end--;
+    k = k%nums.length
+    let [start, end] = [0, nums.length]
+    let temp = []
+    // run a while loop to rotate the array
+    for(let i = end-1; i>=0; i--){
+    // push the last element to the temp array
+        let indexTo = i+k
+    // if the index is greater than the length of the array,
+        if(indexTo >= end) {
+    // then we need to add the index to the start of the array            
+            temp.push(nums[i])
+        } else {
+    // else we can just push the element to the temp array
+            nums[indexTo] = nums[i]
+        }
     }
-} 
+    // now we need to push the temp array to the end of the array
+    for(let i = 0; temp.length > 0; i++){
+        nums[i] = temp.pop()
+    }    
+};
