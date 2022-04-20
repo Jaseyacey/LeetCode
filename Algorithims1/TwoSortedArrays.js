@@ -7,11 +7,12 @@
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2
+ * * @param {number[]} nums3
  * @return {number}
  */
-    var findMedianSortedArrays = function(nums1, nums2) {
+    var findMedianSortedArrays = function(nums1, nums, nums3) {
         // create a new array
-        let nums = nums1.concat(nums2);
+        let nums = nums1.concat(nums2, nums3);
         // sort the array
         nums.sort((a,b) => a-b);
         // if the length of the array is odd
