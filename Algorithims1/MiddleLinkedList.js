@@ -11,14 +11,13 @@
  */
  var middleNode = function(head) {
      // create a dummy node
-    let first = middle = head;
-    // while first is not null
-    while (first && first.next) {
-    // move first to the next node
-        first = fast.next.next;
-    // move middle to the next node
-        middle = middle.next;
+    let fast = slow = head;
+    // while fast is not null
+    while (fast && fast.next) {
+    // move fast to the next node
+        fast = fast.next.next;
+    // move slow to the next node
+        slow = slow.next;
     }
-    // return the middle node
-    return middle;
+    return slow;
 };
