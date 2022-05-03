@@ -15,19 +15,29 @@
  * @return {ListNode}
  */
  var addTwoNumbers = function(l1, l2) {
+     // create a new list node
     let dummy = new ListNode(0);
+    // create a pointer to the current node
     let curr = dummy;
+    // create a pointer to the current node
     let carry = 0;
+    // loop through the two lists
     while (l1 || l2) {
+        // create a variable to store the sum of the two nodes
         let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry;
+        // update the carry
         carry = Math.floor(sum / 10);
+        // update the current node
         curr.next = new ListNode(sum % 10);
+        // update the current node
         curr = curr.next;
+        // update the current node
         l1 = l1 ? l1.next : null;
+        // update the current node
         l2 = l2 ? l2.next : null;
     }
     if (carry) {
         curr.next = new ListNode(carry);
     }
-    return dummy.next;  
+    return dummy.next;
 };
